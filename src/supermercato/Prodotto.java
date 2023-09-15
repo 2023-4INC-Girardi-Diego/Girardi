@@ -111,9 +111,9 @@ public class Prodotto {
         for (int i = 0; i < 12; i++) {
             int cifra = Character.getNumericValue(codiceABarre.charAt(i));
             if (i % 2 == 0) {
-                somma += cifra;
-            } else {
                 somma += cifra * 3;
+            } else {
+                somma += cifra;
             }
         }
 
