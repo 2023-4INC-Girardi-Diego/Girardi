@@ -14,7 +14,7 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Prova n = new Prova(5);
+        Prova n = new Prova(9);
         
        System.out.println( n.minorDivisore());
     }
