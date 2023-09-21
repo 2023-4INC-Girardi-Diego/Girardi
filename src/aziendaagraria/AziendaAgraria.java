@@ -71,7 +71,7 @@ public class AziendaAgraria {
 
     private int trovaSabato() {
         
-        int posizione;
+        int posizione = 0;
         
         for(int i = 0; i<giorni.length; i++){
             if(giorni[i]=="sabato"){
@@ -85,6 +85,9 @@ public class AziendaAgraria {
     
     public int meleSabato(){
         
+        int i = trovaSabato();
+        
+        return mele[i];    
     }
 
 }
