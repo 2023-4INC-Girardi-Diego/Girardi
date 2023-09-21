@@ -109,5 +109,33 @@ public class Supermercato {
 
         return "I prodotti con prezzo sopra la media sono: " + calcoloSopraMedia;
     }
+    
+    public void addProdotto(double prezzo, double iva, double peso, double tara, String descrizione, String codiceABarre, String nome){
+        
+        Prodotto[] arrayNuovo = new Prodotto[this.prodotti.length+1];
+        
+        for(int i =0; i<this.prodotti.length+1; i++){
+            if(i<=this.prodotti.length){
+                arrayNuovo[i]=this.prodotti[i];
+            }else{
+                arrayNuovo[i]= new Prodotto(prezzo,iva,peso,tara,descrizione,codiceABarre,nome);
+            }
+        }
+        
+        this.prodotti = arrayNuovo;
+    }
+    
+    public String stampaArray(){
+        
+        String txt = "";
+        
+        for (int i = 0; i <this.prodotti.length; i++) {
+            txt += this.prodotti[i].getNome()+"\n";
+        }
+        
+        return txt;
+    }
+    
+    
 
 }

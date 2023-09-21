@@ -34,7 +34,13 @@ public class SupermercatoMain {
         System.out.println(Lidl.prezzoAlto());
         System.out.println(Lidl.pesoMinore());
         System.out.println(Lidl.valoreMerce());
+        
+        Lidl.addProdotto(3.2, 22, 0.6, 0.1, "salsa", "1234567891235","Prodotto E" );
+        
+        System.out.println(Lidl.stampaArray());
+            
+        }
 
     }
 
-}
+
