@@ -115,7 +115,7 @@ public class Supermercato {
         Prodotto[] arrayNuovo = new Prodotto[this.prodotti.length+1];
         
         for(int i =0; i<this.prodotti.length+1; i++){
-            if(i<=this.prodotti.length){
+            if(i<this.prodotti.length){
                 arrayNuovo[i]=this.prodotti[i];
             }else{
                 arrayNuovo[i]= new Prodotto(prezzo,iva,peso,tara,descrizione,codiceABarre,nome);
