@@ -119,9 +119,41 @@ public class Supermercato {
 
         }
 
-        arrayNuovo[this.prodotti.length + 1] = new Prodotto(prezzo, iva, peso, tara, descrizione, codiceABarre, nome);
+        arrayNuovo[this.prodotti.length] = new Prodotto(prezzo, iva, peso, tara, descrizione, codiceABarre, nome);
 
         this.prodotti = arrayNuovo;
+    }
+
+    public String remProd(String nome) {
+
+        Prodotto[] arrayNuovo = new Prodotto[this.prodotti.length - 1];
+        int posizioneRem = 0;
+        String txt = " ";
+
+        for (int i = 0; i < this.prodotti.length; i++) {
+            if (this.prodotti[i].getNome() == nome) {
+                posizioneRem = i;
+                txt = "Prodoto trovato";
+            } else {
+                txt = "nome inserito sbagliato o prodotto non esistente";
+            }
+
+        }
+
+        for (int i = 0; i < this.prodotti.length-1; i++) {
+            if (i != posizioneRem) {
+                arrayNuovo[i] = this.prodotti[i];
+            }
+
+            if (i == posizioneRem) {
+                arrayNuovo[i] = this.prodotti[i+1];
+            }
+
+        }
+
+        this.prodotti = arrayNuovo;
+
+        return txt;
     }
 
     public String stampaArray() {

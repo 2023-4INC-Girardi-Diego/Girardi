@@ -38,6 +38,10 @@ public class SupermercatoMain {
         Lidl.addProdotto(3.2, 22, 0.6, 0.1, "salsa", "1234567891235","Prodotto E" );
         
         System.out.println(Lidl.stampaArray());
+        
+        Lidl.remProd("Prodotto A");
+        
+        System.out.println(Lidl.stampaArray());
             
         }
 
