@@ -134,25 +134,23 @@ public class Supermercato {
             if (this.prodotti[i].getNome() == nome) {
                 posizioneRem = i;
                 txt = "Prodoto trovato";
+
+                this.prodotti = arrayNuovo;
             } else {
                 txt = "nome inserito sbagliato o prodotto non esistente";
+                posizioneRem = -1;
             }
 
         }
 
-        for (int i = 0; i < this.prodotti.length-1; i++) {
-            if (i != posizioneRem) {
-                arrayNuovo[i] = this.prodotti[i];
-            }
-
-            if (i == posizioneRem) {
-                arrayNuovo[i] = this.prodotti[i+1];
+        if (posizioneRem >= 0) {
+            for (int i = 0; i < this.prodotti.length - 1; i++) {
+                if (i != posizioneRem) {
+                    arrayNuovo[i] = this.prodotti[i];
+                }
             }
 
         }
-
-        this.prodotti = arrayNuovo;
-
         return txt;
     }
 

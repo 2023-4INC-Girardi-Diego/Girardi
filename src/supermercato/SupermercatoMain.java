@@ -22,29 +22,28 @@ public class SupermercatoMain {
         prodotti[2] = new Prodotto(3.75, 5, 0.3, 0.08, "sale", "567890123456", "Prodotto C");
         prodotti[3] = new Prodotto(2.25, 5, 0.7, 0.1, "latte", "5678901234556", "Prodotto D");
 
-
-        for(int i = 0; i< prodotti.length; i++){
+        for (int i = 0; i < prodotti.length; i++) {
             System.out.println(prodotti[i].prezzoIvato());
         }
-        
 
         Supermercato Lidl = new Supermercato("viale Dante", "lidl", prodotti);
-
+        
+        
+        System.out.println(Lidl.stampaArray());
+        
         System.out.println(Lidl.merciSopraMedia());
         System.out.println(Lidl.prezzoAlto());
         System.out.println(Lidl.pesoMinore());
         System.out.println(Lidl.valoreMerce());
-        
-        Lidl.addProdotto(3.2, 22, 0.6, 0.1, "salsa", "1234567891235","Prodotto E" );
-        
+
+        Lidl.addProdotto(3.2, 22, 0.6, 0.1, "salsa", "1234567891235", "Prodotto E");
+
         System.out.println(Lidl.stampaArray());
-        
+
         Lidl.remProd("Prodotto A");
-        
+
         System.out.println(Lidl.stampaArray());
-            
-        }
 
     }
 
-
+}
