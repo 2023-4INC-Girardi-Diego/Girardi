@@ -99,7 +99,7 @@ public class Ristorante {
 
     private void shiftSx(int indice) {
         for (int i = indice; i < totTav; i++) {
-            tavoli[i - 1] = tavoli[i];
+            tavoli[i] = tavoli[i + 1];
         }
     }
 
