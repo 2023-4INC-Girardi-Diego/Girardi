@@ -42,7 +42,7 @@ public class Classe {
         int indice = trovaStudente(numeroMatricola);
 
         if (indice == -1) {
-            txt = "Studente non esistente o non trovato";
+            txt = "\n" + "Studente non esistente o non trovato";
         } else {
             shiftSx(indice);
             Studente[] nuovoArray = new Studente[studente.length - 1];
@@ -54,10 +54,10 @@ public class Classe {
                 }
             }
             studente = nuovoArray;
-            txt = "Studente eliminato";
+            txt = "\n" + "Studente eliminato";
         }
 
-        return txt + "\n";
+        return txt;
     }
 
     public String addStudente(Studente studente) {
@@ -71,18 +71,18 @@ public class Classe {
 
         this.studente = array;
 
-        return "studente aggiunto";
+        return "\n" + "studente aggiunto";
     }
 
-    public int totStudenti() {
-        return this.studente.length;
+    public String totStudenti() {
+        return "\n" + "il totale degli studenti e': " + this.studente.length;
     }
 
     public String stampa() {
         String txt = "\n";
 
         for (int i = 0; i < this.studente.length; i++) {
-            txt += this.studente[i].getMatricola() + "\n";
+            txt += this.studente[i].getMatricola() + " ";
         }
 
         return txt;

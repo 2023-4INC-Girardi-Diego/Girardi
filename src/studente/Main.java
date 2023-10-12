@@ -25,10 +25,21 @@ public class Main {
         Classe classe = new Classe(studenteArray);
         
         //classe.trovaStudente(89);
+        System.out.println(classe.stampa());
         
         System.out.println(classe.remStudente(2));
         
         System.out.println(classe.stampa());
+        
+        Studente studente = new Studente(5, "debortoli Andrea", 2006, "levico");
+        
+        System.out.println(classe.addStudente(studente));
+        
+        System.out.println(classe.stampa());
+        
+        System.out.println(classe.totStudenti());
+        
+        
     }
     
 }
