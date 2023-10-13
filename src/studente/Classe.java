@@ -87,4 +87,14 @@ public class Classe {
 
         return txt;
     }
+    
+    public String stampaNomi(){
+        String txt = "\n";
+        
+        for (int i = 0; i < this.studente.length; i++) {
+            txt += this.studente[i].getCognomeNome()+ "\n";
+        }
+        
+        return txt;
+    }
 }

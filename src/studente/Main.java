@@ -39,6 +39,7 @@ public class Main {
         
         System.out.println(classe.totStudenti());
         
+        System.out.println(classe.stampaNomi());
         
     }
     

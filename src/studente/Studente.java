@@ -25,6 +25,10 @@ public class Studente {
     public int getMatricola() {
         return matricola;
     }
+
+    public String getCognomeNome() {
+        return cognomeNome;
+    }
     
     
 }
