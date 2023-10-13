@@ -27,8 +27,8 @@ public class Main {
         
         Condominio[] condominio1 = new Condominio[2];
         
-        condominio1[0] = new Condominio(appartamenti,"sium", "AfterLife");
-        condominio1[1] = new Condominio(appartamenti1,"sium", "Tryhard");
+        condominio1[0] = new Condominio(appartamenti1,"sium", "AfterLife");
+        condominio1[1] = new Condominio(appartamenti,"sium", "Tryhard");
         
         Amministratore admin = new Amministratore(condominio1);
         
