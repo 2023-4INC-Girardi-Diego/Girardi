@@ -50,4 +50,28 @@ public class Condominio {
         return "\n nel condominio " + this.nome + " il proprietario " + nome + " e' quello con piu millesimi (" + millesimi + ") in totale";
     }
 
+    public void addAppartamenti(Appartamento aggiungi) {
+        Appartamento[] appartamenti1 = new Appartamento[this.appartamenti.length + 1];
+
+        for (int i = 0; i < this.appartamenti.length; i++) {
+            appartamenti1[i] = this.appartamenti[i];
+        }
+
+        appartamenti1[this.appartamenti.length + 1] = aggiungi;
+
+        this.appartamenti = appartamenti1;
+    }
+
+    public String stampa() {
+
+        String txt = "";
+
+        for (int i = 0; i < this.totAppartamenti; i++) {
+            txt += this.appartamenti[i].getNomeProprietario();
+        }
+
+        return txt;
+
+    }
+
 }

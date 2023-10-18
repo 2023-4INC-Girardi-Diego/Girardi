@@ -13,11 +13,9 @@ public class Amministratore {
     Condominio[] condomini;
 
     public Amministratore(Condominio[] condomini) {
-        this.condomini = new Condominio[condomini.length];
 
-        for (int i = 0; i < this.condomini.length; i++) {
-            this.condomini[i] = condomini[i];
-        }
+        this.condomini = condomini;
+
     }
 
     public String proprietarioMaxMillesimi() {
@@ -31,6 +29,19 @@ public class Amministratore {
         }
 
         return txt;
+    }
+
+    public void addCondominio(Condominio aggiungi) {
+
+        Condominio[] condominio1 = new Condominio[this.condomini.length + 1];
+
+        for (int i = 0; i < this.condomini.length; i++) {
+            condominio1[i] = this.condomini[i];
+        }
+
+        condominio1[this.condomini.length + 1] = aggiungi;
+
+        this.condomini = condominio1;
     }
 
     public String condominioMaggiore() {
@@ -48,5 +59,17 @@ public class Amministratore {
         }
 
         return "\n il condominio " + nome + " e quello con piu appartameti, " + maggiore + " in totale";
+    }
+
+    public String stampa() {
+        String txt = "";
+
+        for (int i = 0; i < this.condomini.length; i++) {
+
+            txt += this.condomini[i].getNome() + " ";
+
+        }
+
+        return txt;
     }
 }
