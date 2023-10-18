@@ -93,10 +93,6 @@ public class Ristorante {
         return txt;
     }
 
-    public boolean addTav(Tavolo t) {
-
-    }
-
     private void shiftSx(int indice) {
         for (int i = indice; i < totTav; i++) {
             tavoli[i] = tavoli[i + 1];
