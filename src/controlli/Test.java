@@ -41,7 +41,7 @@ public class Test {
 //essere più catch
 //metto tutte le eccezioni specifiche prima 
 //di quella generica, exception e sempre alla fine
-// in un ctch posso metter epiù errori
+// in un ctch posso mettere più errori
 // tipo (ArithmeticException | ArrayIndexOutOfBoundsException e)
 // il try catch è utile perchè se viene trovato un errore puoi
 //filtrarlo ed il codice prosegue

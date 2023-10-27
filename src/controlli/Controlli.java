@@ -9,5 +9,34 @@ package controlli;
  * @author diego.girardi
  */
 public class Controlli {
-    
+
+    String id;
+
+    public final void setId(String id) throws Exception {
+        char[] idchar = new char[2];
+        String idnum;
+        try {
+            if (!id.isEmpty()) {
+                if (id.length() == 4) {
+                    idchar = id.substring(0, 2).toCharArray();
+                    idnum = id.substring(2);
+                    Integer.parseInt(idnum);
+                    for (int i = 0; i < 2; i++) {
+                        if (!Character.isLetter(idchar[i])) {
+                            throw new Exception("L'id contiene un carattere non valido");
+                        }
+                    }
+                    this.id = id;
+                } else {
+                    throw new Exception("La lunghezza dell'id non è valida");
+                }
+            } else {
+                throw new Exception("id vuoto");
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException("id vuoto");
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("L'id contiene un carattere non valido");
+        }
+    }
 }
