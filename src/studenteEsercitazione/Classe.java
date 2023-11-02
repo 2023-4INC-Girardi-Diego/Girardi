@@ -13,52 +13,39 @@ public class Classe {
     private Studente capoClasse;
     private Studente[] studenti;
 
-    public Classe(Studente capoClasse, Studente[] studenti) {
-        try {
-            setCapoClasse(capoClasse);
-            setStudenti(studenti);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+    public Classe(Studente capoClasse, Studente[] studenti) throws Exception {
+        setCapoClasse(capoClasse);
+        setStudenti(studenti);
     }
 
-    public final void setCapoClasse(Studente capoClasse) throws Exception {
-        try {
-            capoClasse.setNome(capoClasse.nome);
-            capoClasse.setCognome(capoClasse.cognome);
-            this.capoClasse = capoClasse;
-        } catch (Exception e) {
+    public void setCapoClasse(Studente capoClasse) throws Exception {
+        if (capoClasse == null || capoClasse.nome == null || capoClasse.cognome == null) {
             throw new Exception("Il capo classe non puo essere nullo, vuoto o mancare di nome/cognome.");
         }
+        this.capoClasse = capoClasse;
     }
 
-    public final void setStudenti(Studente[] studenti) throws Exception {
-
+    public void setStudenti(Studente[] studenti) throws Exception {
+        if (studenti == null) {
+            throw new Exception("Gli studenti non possono essere nulli.");
+        }
         this.studenti = new Studente[studenti.length];
-        
-        try {
-
-            for (int i = 0; i < studenti.length; i++) {
-                studenti[i].setNome(studenti[i].nome);
-                studenti[i].setCognome(studenti[i].cognome);
-               
-                this.studenti[i] = studenti[i];
-
+        for (int i = 0; i < studenti.length; i++) {
+            if (studenti[i] == null || studenti[i].nome == null || studenti[i].cognome == null) {
+                throw new Exception("Uno studente ha qualche problema.");
             }
-        } catch (Exception e) {
-            throw new Exception("uno studente ha qualche problema");
+            this.studenti[i] = studenti[i];
         }
     }
 
     public String toString() {
-        
+
         String txt = "";
-        
+
         for (int i = 0; i < this.studenti.length; i++) {
             txt += "\n" + studenti[i].getNome();
         }
-        
+
         return txt;
     }
 }

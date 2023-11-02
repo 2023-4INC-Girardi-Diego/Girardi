@@ -13,25 +13,20 @@ public class Studente {
     String nome;
     String cognome;
 
-    public Studente(String nome, String cognome) {
-        try {
-            setNome(nome);
-            setCognome(cognome);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public Studente(String nome, String cognome) throws Exception {
+        setNome(nome);
+        setCognome(cognome);
     }
 
-    public Studente(Studente studente) {
-        try {
-            setNome(studente.nome);
-            setCognome(studente.cognome);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public Studente(Studente studente) throws Exception {
+        if (studente == null) {
+            throw new Exception("Lo studente non può essere nullo.");
         }
+        setNome(studente.nome);
+        setCognome(studente.cognome);
     }
 
-    public final void setNome(String nome) throws Exception {
+    public void setNome(String nome) throws Exception {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {
@@ -39,7 +34,7 @@ public class Studente {
         }
     }
 
-    public final void setCognome(String cognome) throws Exception {
+    public void setCognome(String cognome) throws Exception {
         if (cognome != null && !cognome.isEmpty()) {
             this.cognome = cognome;
         } else {
@@ -51,8 +46,11 @@ public class Studente {
         return nome;
     }
 
+    public String getCognome() {
+        return cognome;
+    }
+
     public String toString() {
         return "\n" + nome + " " + cognome;
     }
-
 }

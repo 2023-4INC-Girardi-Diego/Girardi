@@ -14,19 +14,23 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Studente capo = new Studente("Diego", "Girardi");
-        Studente[] studenti = new Studente[2];
-        
-        studenti[0] = new Studente("ciao", "no");
-        studenti[1] = new Studente("ciao", "no");
-        
-        
-        Classe inc = new Classe(capo, studenti);
-        
-        System.out.println(capo.toString());
-        System.out.println(inc.toString());
-        
+        try {
+            Studente capo = new Studente("Diego", "Girardi");
+            Studente[] studenti = new Studente[2];
+
+            studenti[0] = new Studente("Mario", "Rossi");
+            studenti[1] = new Studente("Luigi", "Verdi");
+
+            
+            //studenti[1].nome = null;
+
+            Classe inc = new Classe(capo, studenti);
+
+            System.out.println(capo.toString());
+            System.out.println(inc.toString());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
     }
-    
 }
