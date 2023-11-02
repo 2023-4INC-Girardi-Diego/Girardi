@@ -14,7 +14,19 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Studente capo = new Studente("Diego", "Girardi");
+        Studente[] studenti = new Studente[2];
+        
+        studenti[0] = new Studente("ciao", "no");
+        studenti[1] = new Studente("ciao", "no");
+        
+        
+        Classe inc = new Classe(capo, studenti);
+        
+        System.out.println(capo.toString());
+        System.out.println(inc.toString());
+        
     }
     
 }

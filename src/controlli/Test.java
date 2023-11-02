@@ -18,6 +18,7 @@ public class Test {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+        System.out.println("\u00E9");
         try {
             System.out.print("Inserisci il dividendo: ");
             int dividendo = in.nextInt();

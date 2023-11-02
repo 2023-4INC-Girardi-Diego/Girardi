@@ -33,8 +33,8 @@ public class Controlli {
             } else {
                 throw new Exception("id vuoto");
             }
-        } catch (NullPointerException e) {
-            throw new NullPointerException("id vuoto");
+        } catch (NullPointerException peppe) {
+            throw new NullPointerException(peppe.toString());
         } catch (NumberFormatException e) {
             throw new NumberFormatException("L'id contiene un carattere non valido");
         }
