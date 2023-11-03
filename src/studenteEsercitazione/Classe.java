@@ -38,6 +38,26 @@ public class Classe {
         }
     }
 
+    public void ordinaStudenti() {
+
+        Studente[] ordina = new Studente[this.studenti.length];
+
+        char[] lettere = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+        int c = 0;
+        for (int i = 0; i < lettere.length; i++) {
+            for (int j = 0; j < this.studenti.length; j++) {
+                if (this.studenti[j].primaLettera() == lettere[i]) {
+                    ordina[c] = this.studenti[j];
+                    c++;
+                }
+            }
+        }
+
+        this.studenti = ordina;
+
+    }
+
     public String toString() {
 
         String txt = "";

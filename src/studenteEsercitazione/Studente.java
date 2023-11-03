@@ -41,6 +41,12 @@ public class Studente {
             throw new Exception("Il cognome non puo essere nullo o vuoto.");
         }
     }
+    
+    public char primaLettera(){
+        
+        return this.nome.charAt(0);
+        
+    }
 
     public String getNome() {
         return nome;
