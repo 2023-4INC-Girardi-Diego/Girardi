@@ -19,33 +19,29 @@ public class Studente {
     }
 
     public Studente(Studente studente) throws Exception {
-        if (studente == null) {
+        if (studente.nome == null || studente.cognome == null && studente.nome.isEmpty() || studente.cognome.isEmpty()) {
             throw new Exception("Lo studente non può essere nullo.");
         }
         setNome(studente.nome);
         setCognome(studente.cognome);
     }
 
-    public void setNome(String nome) throws Exception {
-        if (nome != null && !nome.isEmpty()) {
-            this.nome = nome;
-        } else {
-            throw new Exception("Il nome non puo essere nullo o vuoto.");
-        }
+    public void setNome(String nome){
+
+        this.nome = nome;
+
     }
 
-    public void setCognome(String cognome) throws Exception {
-        if (cognome != null && !cognome.isEmpty()) {
-            this.cognome = cognome;
-        } else {
-            throw new Exception("Il cognome non puo essere nullo o vuoto.");
-        }
+    public void setCognome(String cognome){
+
+        this.cognome = cognome;
+
     }
-    
-    public char primaLettera(){
-        
+
+    public char primaLettera() {
+
         return this.nome.charAt(0);
-        
+
     }
 
     public String getNome() {
