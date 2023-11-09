@@ -18,11 +18,43 @@ public class Classe {
         setStudenti(studenti);
     }
 
+    // tutte queste exceptions inutili, i controlli sono già presenti in studente
     public void setCapoClasse(Studente capoClasse) throws Exception {
         if (capoClasse == null || capoClasse.nome == null || capoClasse.cognome == null) {
             throw new Exception("Il capo classe non puo essere nullo, vuoto o mancare di nome/cognome.");
         }
         this.capoClasse = capoClasse;
+    }
+
+    public void invertiAttributiTest() throws Exception {
+
+        String nome = this.capoClasse.getNome();
+        String cognome = this.capoClasse.getCognome();
+
+        this.capoClasse.setCognome(nome);
+        this.capoClasse.setNome(cognome);
+
+        for (int i = 0; i < studenti.length; i++) {
+            String nomeStud = this.studenti[i].getNome();
+            String cognomeStud = this.studenti[i].getCognome();
+
+            this.studenti[i].setCognome(nomeStud);
+            this.studenti[i].setNome(cognomeStud);
+        }
+    }
+
+    public void invertiAttributi() throws Exception {
+        swapAttributi(this.capoClasse);
+
+        for (int i = 0; i < studenti.length; i++) {
+            swapAttributi(this.studenti[i]);
+        }
+    }
+
+    private void swapAttributi(Studente persona) throws Exception {
+        String temp = persona.getNome();
+        persona.setNome(persona.getCognome());
+        persona.setCognome(temp);
     }
 
     public void setStudenti(Studente[] studenti) throws Exception {

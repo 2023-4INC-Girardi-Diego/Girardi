@@ -32,6 +32,11 @@ public class Main {
             
             System.out.println(inc.toString());
             
+            inc.invertiAttributi();
+            
+            System.out.println(inc.toString());
+            System.out.println(capo.toString());
+            
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
