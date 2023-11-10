@@ -20,7 +20,7 @@ public class Test {
             l.suDodiciOre(true);
             System.out.println(l.stampa());
             
-            OrologioCucu o = new OrologioCucu(10, 30, 25);
+            OrologioCucu o = new OrologioCucu(12, 0, 0);
             System.out.println(o.stampa());
             
         } catch (Exception e) {

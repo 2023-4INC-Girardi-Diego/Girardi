@@ -15,14 +15,14 @@ public class OrologioCucu extends Orologio {
     }
 
     public String stampa() {
-        
+
         String cucu = " CuCu!";
-        String txt = super.getOra()+" : "+super.getMinuti()+" : "+super.getSecondi();
-        
-        if (super.getOra() == 12) {
+        String txt = super.getOra() + " : " + super.getMinuti() + " : " + super.getSecondi();
+
+        if (super.getOra() == 12 && super.getMinuti() == 0 && super.getSecondi() == 0) {
             txt += cucu;
         }
-        
+
         return txt;
     }
 }
