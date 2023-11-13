@@ -9,18 +9,25 @@ package orologio;
  * @author Utente
  */
 public class Orologio {
-    
+
     private int ora;
     private int minuti;
     private int secondi;
-    
+
     public Orologio(int ora, int minuti, int secondi) throws Exception {
         setMinuti(minuti);
         setOra(ora);
         setSecondi(secondi);
-        
+
     }
-    
+
+    public void aggiungiOra(int oreAgg) {
+        this.ora += oreAgg;
+        while (this.ora >= 24) {
+            this.ora -= 24;
+        }
+    }
+
     public void setMinuti(int minuti) throws Exception {
         if (minuti > 60 || minuti < 0) {
             throw new Exception("minuti sbagliati.");
@@ -28,7 +35,7 @@ public class Orologio {
             this.minuti = minuti;
         }
     }
-    
+
     public void setOra(int ora) throws Exception {
         if (ora > 24 || ora < 0) {
             throw new Exception("ora sbagliata.");
@@ -36,7 +43,7 @@ public class Orologio {
             this.ora = ora;
         }
     }
-    
+
     public void setSecondi(int secondi) throws Exception {
         if (secondi > 60 || secondi < 0) {
             throw new Exception("secondi sbagliati.");
@@ -56,9 +63,7 @@ public class Orologio {
     public int getSecondi() {
         return secondi;
     }
-    
-    
-    
+
     public String stampa() {
         return ora + " : " + minuti + " : " + secondi;
     }

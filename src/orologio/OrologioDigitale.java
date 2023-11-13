@@ -28,7 +28,9 @@ public class OrologioDigitale extends Orologio {
         }
     }
 
+    
     public String stampa() {
-        return oraDig + " : " + super.getMinuti() + " : " + super.getSecondi() + " " + amOrpm;
+        return super.stampa() + " "+amOrpm; 
     }
+
 }
