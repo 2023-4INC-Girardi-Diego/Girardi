@@ -47,6 +47,72 @@ public class Main {
         // Metodo contains(): verifica se la stringa contiene una determinata sottostringa
         boolean contiene = testo.contains("esempio");
         System.out.println("La stringa contiene la parola 'esempio': " + contiene);
+
+        // Metodo compareTo() e equals(): confronto tra stringhe
+        String altraStringa = "esempio di manipolazione delle stringhe";
+        int confronto = testo.compareTo(altraStringa);
+        boolean uguale = testo.equals(altraStringa);
+        System.out.println("Confronto tra stringhe: " + confronto);
+        System.out.println("Le stringhe sono uguali? " + uguale);
+
+        // Metodo indexOf() e lastIndexOf() con posizioni aggiuntive
+        int indiceDa = testo.indexOf('i', 10);
+        int indiceA = testo.lastIndexOf('i', 20);
+        System.out.println("Indice della lettera 'i' a partire dalla posizione 10: " + indiceDa);
+        System.out.println("Ultimo indice della lettera 'i' entro la posizione 20: " + indiceA);
+
+        // Metodo substring() con un solo indice
+        String dopoPosizione = testo.substring(8);
+        System.out.println("Sottostringa dalla posizione 8 fino alla fine: " + dopoPosizione);
+
+        // Metodo replaceAll() e replaceFirst()
+        String sostituzioneTutte = testo.replaceAll("i", "X");
+        String sostituzionePrima = testo.replaceFirst("i", "Y");
+        System.out.println("Sostituzione di tutte le 'i': " + sostituzioneTutte);
+        System.out.println("Sostituzione della prima 'i': " + sostituzionePrima);
+
+        // Metodo toCharArray()
+        char[] caratteri = testo.toCharArray();
+        System.out.println("La stringa in un array di caratteri: " + java.util.Arrays.toString(caratteri));
+
+        // Metodo startsWith()  con offset
+        boolean iniziaConOffset = testo.startsWith("di", 9);
+        System.out.println("La stringa inizia con 'di' a partire dalla posizione 9: " + iniziaConOffset);
+
+        // Metodo matches()
+        boolean corrisponde = testo.matches(".*manipolazione.*");
+        System.out.println("La stringa corrisponde all'espressione regolare '.*manipolazione.*': " + corrisponde);
+
+        // Metodo trim(): rimuove gli spazi bianchi iniziali e finali
+        String senzaSpazi = testo.trim();
+        System.out.println("Stringa senza spazi bianchi: \"" + senzaSpazi + "\"");
+
+        // Metodo startsWith() e endsWith(): verifica se la stringa inizia o finisce con una determinata sottostringa
+        boolean iniziaCon = testo.startsWith("Esempio");
+        boolean finisceCon = testo.endsWith("stringhe");
+        System.out.println("La stringa inizia con 'Esempio': " + iniziaCon);
+        System.out.println("La stringa finisce con 'stringhe': " + finisceCon);
+
+        // Metodo isEmpty(): verifica se la stringa è vuota
+        boolean vuota = testo.isEmpty();
+        System.out.println("La stringa è vuota? " + vuota);
+
+        // Metodo split(): divide la stringa in sottostringhe basate su uno spazio
+        String[] parole = testo.split(" ");
+        System.out.println("Numero di parole nella stringa: " + parole.length);
+
+        // Metodo concat(): concatena una stringa con un'altra
+        String nuovaStringa = testo.concat(" Aggiunta di una nuova parte.");
+        System.out.println("Nuova stringa concatenata: \"" + nuovaStringa + "\"");
+
+        // Metodo charAt(): restituisce il codice Unicode del carattere all'indice specificato
+        int unicode = testo.charAt(4);
+        System.out.println("Codice Unicode del carattere alla posizione 4: " + unicode);
+
+        // Metodo valueOf(): converte altri tipi di dati in stringhe
+        int numero = 42;
+        String numeroStringa = String.valueOf(numero);
+        System.out.println("Numero convertito in stringa: " + numeroStringa);
     }
 
 }
