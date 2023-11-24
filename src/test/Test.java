@@ -8,37 +8,31 @@ package test;
  *
  * @author Utente
  */
-
 import java.util.Scanner;
 
 public class Test {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         Impiccato gioco = new Impiccato();
+        Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-            gioco.stampaParolaCensurata();
-            System.out.print("Inserisci una lettera: ");
-            String input = scanner.nextLine();
+        System.out.println("Benvenuto a Impiccato!");
+        gioco.stampaParolaCensurata();
 
-            if (input.length() != 1) {
-                System.out.println("Inserisci una sola lettera!");
-                continue;
-            }
-
-            char lettera = input.charAt(0);
+        while (!gioco.getGiocoFinito()) {
+            System.out.print("\nInserisci una lettera: ");
+            char lettera = scanner.next().charAt(0);
             gioco.trovaLettera(lettera);
+            gioco.stampaParolaCensurata();
 
-            // Controllo se la parola è stata indovinata completamente
-            if (!gioco.censura.toString().contains("-")) {
-                System.out.println("Complimenti, hai indovinato la parola!");
+            if (gioco.getGiocoFinito()) {
+                if (gioco.getContatore() >= 5) {
+                    System.out.println("La parola era: " + gioco.getParola());
+                }
                 break;
             }
         }
+
         scanner.close();
     }
 }

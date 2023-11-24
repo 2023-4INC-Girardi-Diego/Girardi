@@ -12,14 +12,18 @@ import java.util.Scanner;
  */
 public class Impiccato {
 
-    private String parola = "alllo";
-    public StringBuilder censura;
+    private String parola = "ciao";
+    private StringBuilder censura;
+    private int contatore;
+    private boolean giocoFinito;
 
     public Impiccato() {
         censura = new StringBuilder();
         for (int i = 0; i < parola.length(); i++) {
             censura.append("-");
         }
+        contatore = 0;
+        giocoFinito = false;
     }
 
     public void stampaParolaCensurata() {
@@ -27,6 +31,7 @@ public class Impiccato {
     }
 
     public void trovaLettera(char lettera) {
+    if (!giocoFinito) {
         boolean trovata = false;
 
         for (int i = 0; i < parola.length(); i++) {
@@ -36,12 +41,59 @@ public class Impiccato {
             }
         }
 
-        if (trovata) {
-            System.out.println("Lettera trovata!");
+        if (!trovata) {
+            System.out.println("\nLettera non presente.");
+            contatore++;
+
+            if (contatore <= 5) {
+                switch (contatore) {
+                    case 1:
+                        System.out.println("______\n|    |\n|    O\n|    \n|    \n|______\n");
+                        break;
+                    case 2:
+                        System.out.println("______\n|    |\n|    O\n|    |\n|    \n|______\n");
+                        break;
+                    case 3:
+                        System.out.println("______\n|    |\n|    O\n|   /|\n|    \n|______\n");
+                        break;
+                    case 4:
+                        System.out.println("______\n|    |\n|    O\n|   /|\\\n|    \n|______\n");
+                        break;
+                    case 5:
+                        System.out.println("______\n|    |\n|    O\n|   /|\\\n|   / \\\n|______\n");
+                        System.out.println("Hai esaurito tutti i tentativi!");
+                        giocoFinito = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
         } else {
-            System.out.println("Lettera non presente.");
+            System.out.println("\nLettera trovata!");
+        }
+
+        if (!censura.toString().contains("-")) {
+            System.out.println("Complimenti, hai indovinato la parola!");
+            giocoFinito = true;
         }
     }
-    
 }
 
+
+    public boolean getGiocoFinito() {
+        return this.giocoFinito;
+    }
+
+    public int getContatore() {
+        return contatore;
+    }
+
+    public String getParola() {
+        return parola;
+    }
+    
+    
+    
+    
+
+}
