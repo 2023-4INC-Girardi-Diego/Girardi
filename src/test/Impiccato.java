@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Impiccato {
 
-    private String parola = "ciao";
+    private String parola = "precipitevolissimevolmente";
     private StringBuilder censura;
     private int contatore;
     private boolean giocoFinito;

@@ -17,7 +17,7 @@ public class Alimentare extends Prodotti {
         this.scadenza = scadenza;
     }
 
-    public double modPrezzo() throws Exception {
+    public void modPrezzo() throws Exception {
         double nuovoPrezzo = 0.0;
         int giorniAllaScadenza = giorniAllaScadenza();
 
@@ -28,10 +28,10 @@ public class Alimentare extends Prodotti {
         } else if (giorniAllaScadenza <= 0) {
             throw new Exception("Prodotto scaduto");
         } else {
-            nuovoPrezzo = super.getPrezzo(); // Nessuna modifica al prezzo
+            nuovoPrezzo = super.getPrezzo(); 
         }
 
-        return nuovoPrezzo;
+        super.setPrezzo(nuovoPrezzo);
     }
 
     public int giorniAllaScadenza() {
