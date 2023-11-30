@@ -32,8 +32,11 @@ public class OrologioDigitale extends Orologio {
         }
     }
 
-    public String stampa() {
-        return super.stampa() + " " + amOrpm;
+    @Override
+    public String toString() {
+        return super.toString() + amOrpm;
     }
+
+
 
 }

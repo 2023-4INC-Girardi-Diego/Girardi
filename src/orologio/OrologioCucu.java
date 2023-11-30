@@ -25,7 +25,10 @@ public class OrologioCucu extends Orologio {
         return txt;
     }
 
-    public String stampa() {
-        return super.stampa() + " " + Cucu();
+    @Override
+    public String toString() {
+        return super.toString() + Cucu();
     }
+
+
 }

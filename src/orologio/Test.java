@@ -35,7 +35,7 @@ public class Test {
 
             for (int i = 0; i < array.length; i++) {
 
-                txt += array[i].stampa() + "\n";
+                txt += array[i].toString()+ "\n";
 
             }
 
@@ -49,12 +49,13 @@ public class Test {
 
             for (int i = 0; i < array.length; i++) {
 
-                txt += array[i].stampa() + "\n";
+                txt += array[i].toString()+ "\n";
 
             }
 
             System.out.println(txt);
-
+            
+            
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

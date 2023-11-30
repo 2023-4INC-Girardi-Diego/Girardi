@@ -64,7 +64,10 @@ public class Orologio {
         return secondi;
     }
 
-    public String stampa() {
-        return ora + " : " + minuti + " : " + secondi;
+    @Override
+    public String toString() {
+        return this.ora + " : " + this.minuti + " : " + this.secondi+" "; 
     }
+
+
 }
