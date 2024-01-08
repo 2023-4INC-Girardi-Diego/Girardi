@@ -8,9 +8,11 @@ package compitinatale;
  *
  * @author Utente
  */
-public class Tabellone {
-    
-    private Oggetto[][] tabellone;
+public class Matite extends Oggetto {
+
+    public Matite() {
+        super(1, null, "Matita", null);
+    }
     
     
 }
