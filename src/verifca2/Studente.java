@@ -24,11 +24,12 @@ public class Studente extends Persona {
     }
 
     public Studente() {
+        super();
     }
 
     public void setClasse(int classe) throws Exception {
-        if (classe <= 1 && classe >= 5) {
-            throw new Exception("classe non esistente");
+        if (classe < 1 || classe > 5) {
+            throw new Exception("Classe non esistente");
         } else {
             this.classe = classe;
         }
@@ -58,8 +59,8 @@ public class Studente extends Persona {
     }
 
     public void aggiungiVoto(Float voto) throws Exception {
-        if (classe <= 3.0f && classe >= 10.0f) {
-            throw new Exception("voto non esistente");
+        if (voto < 3.0f || voto > 10.0f) {
+            throw new Exception("Voto non esistente");
         } else {
             float[] array = this.voti;
 
@@ -73,70 +74,93 @@ public class Studente extends Persona {
     }
 
     public void rimuoviVoto(int posizione) throws Exception {
-        if (posizione > this.voti.length) {
-            throw new Exception("posizione non esistente");
+        if (posizione < 0 || posizione >= this.voti.length) {
+            throw new Exception("Posizione non esistente");
         } else {
-
-            float[] array = this.voti;
-
-            array[posizione] = 0.0f;
-
-            float[] array2 = new float[this.voti.length];
-
-            for (int i = 0; i < 10; i++) {
-                if (array[i] == 0.0) {
-                    i--;
-                } else {
-                    array2[i] = array[i];
-                }
-
-                this.voti = array2;
-
-            }
+            this.voti[posizione] = 0.0f;
         }
-
     }
 
     public boolean promuovi() throws Exception {
-
-        boolean riuscita = true;
-
         int promozione = this.classe + 1;
-
-        if (promozione > 5) {
-
-            riuscita = false;
-
+        if (promozione > 5 || promozione < 1) {
+            return false;
         } else {
-            int promozione1 = this.classe + 1;
-
-            this.classe = promozione1;
-
+            this.classe = promozione;
+            return true;
         }
-
-        return riuscita;
-
     }
 
     public boolean promuovi(int classi) throws Exception {
-
-        boolean riuscita = true;
-
         int promozione = this.classe + classi;
-
-        if (promozione > 5) {
-
-            riuscita = false;
-
+        if (promozione > 5 || promozione < 1) {
+            return false;
         } else {
-            int promozione1 = this.classe + classi;
+            this.classe = promozione;
+            return true;
+        }
+    }
 
-            this.classe = promozione1;
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        // Il metodo clone() crea una copia dell'oggetto Studente.
+        // È necessario dichiarare che la classe implementa Cloneable.
+        Studente clonedStudente = (Studente) super.clone();
+        // Clonare eventuali attributi specifici della classe Studente
+        // (ad esempio, voti)
+        // clonedStudente.setVoti(this.voti.clone());
+        return clonedStudente;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        // Il metodo equals() verifica l'uguaglianza tra due oggetti Studente.
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
         }
 
-        return riuscita;
+        Studente studente = (Studente) obj;
 
+        // Verifica l'uguaglianza degli attributi della classe e delle superclassi
+        return super.equals(obj)
+                && classe == studente.classe
+                && isRipetente == studente.isRipetente
+                && java.util.Arrays.equals(voti, studente.voti);
     }
 
+    @Override
+    public int hashCode() {
+        // Il metodo hashCode() restituisce un valore numerico univoco per l'oggetto.
+        // La moltiplicazione per 31 può essere implementata più efficientemente dai compilatori rispetto ad altre costanti.
+        int result = super.hashCode();
+        result = 31 * result + classe;
+        result = 31 * result + (isRipetente ? 1 : 0);
+        result = 31 * result + java.util.Arrays.hashCode(voti);
+        return result;
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        // -Il metodo finalize() viene chiamato dal Garbage Collector prima
+        // -di eliminare l'oggetto. Può essere utilizzato per operazioni di pulizia.
+        // -Esempio: Chiudere risorse aperte come connessioni al database.
+        // -il metodo restituisce il risultato finale, che rappresenta il codice hash univoco dell'oggetto Studente. 
+        //  Questo approccio garantisce che oggetti con attributi diversi generino diversi codici hash, riducendo il rischio di collisioni 
+        //  (ossia, situazioni in cui due oggetti diversi hanno lo stesso codice hash).
+        super.finalize();
+    }
+
+    @Override
+    public String toString() {
+        // Il metodo toString() restituisce una rappresentazione in formato stringa dell'oggetto.
+        return "Studente{"
+                + "scuola='" + scuola + '\''
+                + ", classe=" + classe
+                + ", isRipetente=" + isRipetente
+                + ", voti=" + java.util.Arrays.toString(voti)
+                + "} " + super.toString();
+    }
+}
