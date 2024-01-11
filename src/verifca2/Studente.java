@@ -135,6 +135,9 @@ public class Studente extends Persona {
     public int hashCode() {
         // Il metodo hashCode() restituisce un valore numerico univoco per l'oggetto.
         // La moltiplicazione per 31 può essere implementata più efficientemente dai compilatori rispetto ad altre costanti.
+        // Il metodo restituisce il risultato finale, che rappresenta il codice hash univoco dell'oggetto Studente. 
+        // Questo approccio garantisce che oggetti con attributi diversi generino diversi codici hash, riducendo il rischio di collisioni 
+        // (ossia, situazioni in cui due oggetti diversi hanno lo stesso codice hash).
         int result = super.hashCode();
         result = 31 * result + classe;
         result = 31 * result + (isRipetente ? 1 : 0);
@@ -144,12 +147,9 @@ public class Studente extends Persona {
 
     @Override
     protected void finalize() throws Throwable {
-        // -Il metodo finalize() viene chiamato dal Garbage Collector prima
-        // -di eliminare l'oggetto. Può essere utilizzato per operazioni di pulizia.
-        // -Esempio: Chiudere risorse aperte come connessioni al database.
-        // -il metodo restituisce il risultato finale, che rappresenta il codice hash univoco dell'oggetto Studente. 
-        //  Questo approccio garantisce che oggetti con attributi diversi generino diversi codici hash, riducendo il rischio di collisioni 
-        //  (ossia, situazioni in cui due oggetti diversi hanno lo stesso codice hash).
+        // Il metodo finalize() viene chiamato dal Garbage Collector prima
+        // di eliminare l'oggetto. Può essere utilizzato per operazioni di pulizia.
+        // Esempio: Chiudere risorse aperte come connessioni al database.
         super.finalize();
     }
 
