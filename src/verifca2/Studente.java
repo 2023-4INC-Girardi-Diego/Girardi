@@ -5,6 +5,9 @@
 package verifca2;
 
 import data.Data;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  *
@@ -15,7 +18,7 @@ public class Studente extends Persona {
     private final String scuola = "I.T.T Buonarroti";
     private int classe;
     private boolean isRipetente;
-    private float[] voti;
+    private ArrayList<Float> voti;
 
     public Studente(String cognome, String nome, Data dataDiNascita, int classe, boolean ripetente) throws Exception {
         super(cognome, nome, dataDiNascita);
@@ -39,7 +42,7 @@ public class Studente extends Persona {
         this.isRipetente = isRipetente;
     }
 
-    public void setVoti(float[] voti) {
+    public void setVoti(ArrayList<Float> voti) {
         this.voti = voti;
     }
 
@@ -59,26 +62,72 @@ public class Studente extends Persona {
     }
 
     public void aggiungiVoto(Float voto) throws Exception {
-        if (voto < 3.0f || voto > 10.0f) {
-            throw new Exception("Voto non esistente");
+        this.voti.add(voto);
+    }
+
+    public void rimuoviVoto(Float voto) throws Exception {
+
+        int i = 0;
+
+        while (i < this.voti.size() && !this.voti.get(i).equals(voto)) {
+            i++;
+        }
+
+        if (i < this.voti.size()) {
+
+            this.voti.remove(i);
         } else {
-            float[] array = this.voti;
 
-            array = new float[this.voti.length + 1];
-
-            array[this.voti.length] = voto;
-
-            this.voti = array;
-
+            throw new Exception("Voto non trovato");
         }
     }
 
-    public void rimuoviVoto(int posizione) throws Exception {
-        if (posizione < 0 || posizione >= this.voti.length) {
-            throw new Exception("Posizione non esistente");
+    public void rimuoviVoto(Integer posizione) throws Exception {
+        if (posizione >= 0 && posizione < this.voti.size()) {
+            this.voti.remove(posizione);
         } else {
-            this.voti[posizione] = 0.0f;
+            throw new Exception("Posizione non valida");
         }
+    }
+
+    public void rimuviUltimoVoto() {
+        if (!this.voti.isEmpty()) {
+            this.voti.remove(this.voti.size() - 1);
+        }
+    }
+
+    //utilizzo comparator che permette di mettere in ordine naturale tutti i numeri
+    public float votoMinore() {
+        this.voti.sort(Comparator.naturalOrder());
+        return this.voti.get(0);
+    }
+
+    public float votoMagggiore() {
+        this.voti.sort(Comparator.naturalOrder());
+        return this.voti.get(this.voti.size() - 1);
+    }
+
+    public float mediaVoti() {
+
+        float media = 0;
+        float somma = 0;
+
+        for (int i = 0; i < this.voti.size(); i++) {
+            somma += this.voti.get(i);
+        }
+
+        media = somma / this.voti.size();
+
+        return media;
+
+    }
+
+    public void ordinaVotoCrescente() {
+        this.voti.sort(Comparator.naturalOrder());
+    }
+
+    public void ordinaVotoDecrescente() {
+        this.voti.sort(Comparator.reverseOrder());
     }
 
     public boolean promuovi() throws Exception {
@@ -128,7 +177,7 @@ public class Studente extends Persona {
         return super.equals(obj)
                 && classe == studente.classe
                 && isRipetente == studente.isRipetente
-                && java.util.Arrays.equals(voti, studente.voti);
+                && Arrays.equals(voti.toArray(), studente.voti.toArray());
     }
 
     @Override
@@ -141,7 +190,7 @@ public class Studente extends Persona {
         int result = super.hashCode();
         result = 31 * result + classe;
         result = 31 * result + (isRipetente ? 1 : 0);
-        result = 31 * result + java.util.Arrays.hashCode(voti);
+        result = 31 * result + Arrays.hashCode(voti.toArray());
         return result;
     }
 
@@ -160,7 +209,7 @@ public class Studente extends Persona {
                 + "scuola='" + scuola + '\''
                 + ", classe=" + classe
                 + ", isRipetente=" + isRipetente
-                + ", voti=" + java.util.Arrays.toString(voti)
+                + ", voti=" + voti
                 + "} " + super.toString();
     }
 }
